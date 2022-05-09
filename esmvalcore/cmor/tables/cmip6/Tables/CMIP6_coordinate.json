@@ -272,7 +272,7 @@
             "climatology": "", 
             "formula": "", 
             "must_have_bounds": "no", 
-            "out_name": "basin", 
+            "out_name": "sector", 
             "positive": "", 
             "requested": [
                 "atlantic_arctic_ocean", 
