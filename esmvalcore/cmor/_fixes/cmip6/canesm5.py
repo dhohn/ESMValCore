@@ -2,7 +2,7 @@
 import dask.array as da
 
 from ..fix import Fix
-
+from ..common import MsftRenameOceanRegionCoord
 
 class Co2(Fix):
     """Fixes for co2."""
@@ -44,3 +44,5 @@ class Gpp(Fix):
         """
         cube.data = da.ma.masked_equal(cube.core_data(), 0.0)
         return cube
+
+Msftmz = MsftRenameOceanRegionCoord

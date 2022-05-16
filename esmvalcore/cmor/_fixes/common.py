@@ -216,3 +216,24 @@ class SiconcFixScalarCoord(Fix):
         cube = self.get_cube_from_list(cubes)
         add_scalar_typesi_coord(cube)
         return iris.cube.CubeList([cube])
+
+
+class MsftRenameOceanRegionCoord(Fix):
+    """Fix the var_name of 'region' coord from 'sector' to 'basin'."""
+
+    def fix_metadata(self, cubes):
+        """Add typesi coordinate.
+
+        Parameters
+        ----------
+        cubes : iris.cube.CubeList
+            Input cubes.
+
+        Returns
+        -------
+        iris.cube.CubeList
+
+        """
+        for cube in cubes:
+            cube.coord("region").var_name = "basin"
+        return cubes

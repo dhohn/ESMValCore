@@ -2,7 +2,10 @@
 import iris
 import numpy as np
 
-from ..common import ClFixHybridHeightCoord
+from ..common import (
+    ClFixHybridHeightCoord,
+    MsftRenameOceanRegionCoord,
+)
 from ..fix import Fix
 
 
@@ -130,3 +133,10 @@ class Zg(Fix):
         cube.coord('air_pressure').bounds = \
             np.round(cube.coord('air_pressure').bounds, 0)
         return cubes
+
+
+Msftmz = MsftRenameOceanRegionCoord
+
+
+Msftyz = MsftRenameOceanRegionCoord
+
