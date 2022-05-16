@@ -13,11 +13,11 @@ class DerivedVariable(DerivedVariableBase):
         """Declare the variables needed for derivation."""
         if project == 'CMIP5':
             required = [{'short_name': 'msftmyz'}]
-        if project == 'CMIP6':
-        #     required = [{'short_name': 'msftyz'}]
-            required = [#{'short_name': 'msftmyz', 'optional': True, },
-                        {'short_name': 'msftyz', 'optional': True, },
+        elif project == 'CMIP6':
+            required = [{'short_name': 'msftyz', 'optional': True, },
                         {'short_name': 'msftmz', 'optional': True, }]
+        else:
+            required = None
 
         return required
 
@@ -56,17 +56,14 @@ class DerivedVariable(DerivedVariableBase):
         # 2: Remove the shallowest 500m to avoid wind driven mixed layer.
         depth_constraint = iris.Constraint(depth=lambda d: d >= 500.)
         cube = cube.extract(constraint=depth_constraint)
-        print(cube)
-
 
         # 3: Find the latitude closest to 26N
         rapid_location = 26.5
-        #lats = cube.coord('latitude').points
         rapid_index = np.argmin(np.abs(lats - rapid_location))
 
         if meridional:
             rapid_constraint = iris.Constraint(latitude=lats[rapid_index])
-        if not meridional:
+        else:
             rapid_constraint = iris.Constraint(grid_latitude=lats[rapid_index])
         cube = cube.extract(constraint=rapid_constraint)
 
