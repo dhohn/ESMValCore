@@ -1,5 +1,8 @@
 """Fixes for CMIP6 UKESM1-0-LL."""
-from ..common import ClFixHybridHeightCoord
+from ..common import (
+    ClFixHybridHeightCoord,
+    MsftRenameOceanRegionCoord,
+)
 from ..fix import Fix
 
 
@@ -37,3 +40,6 @@ Cli = ClFixHybridHeightCoord
 
 
 Clw = ClFixHybridHeightCoord
+
+
+Msftyz = MsftRenameOceanRegionCoord

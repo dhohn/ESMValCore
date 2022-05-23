@@ -1,5 +1,8 @@
 """Fixes for GFDL-ESM4 model."""
-from ..common import SiconcFixScalarCoord
+from ..common import (
+    SiconcFixScalarCoord,
+    MsftRenameOceanRegionCoord,
+)
 from ..fix import Fix
 from ..shared import (
     add_scalar_depth_coord,
@@ -56,3 +59,6 @@ Oyr = Omon
 
 
 Siconc = SiconcFixScalarCoord
+
+
+Msftmz = MsftRenameOceanRegionCoord

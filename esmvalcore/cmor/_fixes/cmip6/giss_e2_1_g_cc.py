@@ -1,8 +1,10 @@
-"""Fixes for MPI-ESM1-2-LR model."""
+"""Fixes for GISS-E2-1-G-CC model."""
 from ..common import (
     ClFixHybridPressureCoord,
     MsftRenameOceanRegionCoord,
 )
+
+
 
 Cl = ClFixHybridPressureCoord
 

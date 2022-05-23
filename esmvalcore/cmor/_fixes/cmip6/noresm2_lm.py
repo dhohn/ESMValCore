@@ -1,7 +1,10 @@
 """Fixes for NorESM2-LM model."""
 import numpy as np
 
-from ..common import ClFixHybridPressureCoord
+from ..common import (
+    ClFixHybridPressureCoord,
+    MsftRenameOceanRegionCoord,
+)
 from ..fix import Fix
 
 
@@ -77,3 +80,6 @@ class Siconc(Fix):
             longitude.bounds = np.round(longitude.bounds, 4)
 
         return cubes
+
+
+Msftmz = MsftRenameOceanRegionCoord
